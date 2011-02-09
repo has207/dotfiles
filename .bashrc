@@ -1,4 +1,6 @@
-# Set prompt to display time, last exit status and any git branch you're currently on
+# Set prompt to:
+#
+# [current time] MACHINE:CWD [$?] {current git branch} $
 
 function update_prompt() {
     GIT_BRANCH=$(git branch 2>/dev/null | grep '^\*' | cut -d ' ' -f 2)
