@@ -3,4 +3,6 @@ filetype plugin indent on
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 nnoremap <silent> gg g<C-]>
+let mapleader = ","
+set number
 syntax on
