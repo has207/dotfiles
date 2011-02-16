@@ -3,6 +3,7 @@ filetype plugin indent on
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 nnoremap <silent> gg g<C-]>
+let g:NERDTreeIgnore = ['\~$', '\.pyc$']
 let mapleader = ","
 set hidden
 set scrolloff=3
