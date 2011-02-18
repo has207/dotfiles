@@ -23,3 +23,23 @@ imap <Left> <ESC>:bprev<CR>
 " Improve % matching
 runtime macros/matchit.vim
 syntax on
+
+" open file, from the current vim dir
+noremap ,o :FufFile<CR> 
+
+" select one of the loaded buffers 
+noremap ,v :FufBuffer<CR> 
+
+" open file, from the dir the current file lives into 
+noremap ,a :FufFileWithCurrentBufferDir<CR> 
+
+" jump to line 
+noremap ,j :FufLine<CR>
+
+" this lets you type r: and get in your list of files all the files in 
+" the actual dir and its subdirs 
+let g:fuf_abbrevMap = { 
+      \   "^r:" : [ 
+      \     './**/', 
+      \   ]
+      \ } 
