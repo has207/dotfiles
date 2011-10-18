@@ -14,12 +14,6 @@ map L $
 set noerrorbells
 set mousehide
 set title
-set foldlevel=1
-" buffer switching/management, might as well use those keys for something useful
-map <Right> :bnext<CR>
-imap <Right> <ESC>:bnext<CR>
-map <Left> :bprev<CR>
-imap <Left> <ESC>:bprev<CR>
 " Improve % matching
 runtime macros/matchit.vim
 syntax on
