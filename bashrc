@@ -35,22 +35,32 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # OSX specific stuff
 if test $(uname) = Darwin; then
-  # MacPorts
-  export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
-  # sml needs some readline love
-  function sml() {
-    socat READLINE EXEC:"/opt/local/bin/sml $*"
-  }
-
-  # CUDA env stuff
-  export PATH=/Developer/NVIDIA/CUDA-5.0/bin:$PATH
-  export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.0/lib:$DYLD_LIBRARY_PATH
-
   # javac 文字化け fix
   export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+
+  # MacPorts
+  if [ -d /opt/local/bin ]; then
+    export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+  fi
+
+  # sml needs some readline love
+  if [ -f /opt/local/bin/sml ]; then
+    function sml() {
+      socat READLINE EXEC:"/opt/local/bin/sml $*"
+    }
+  fi
+
+  # CUDA env stuff
+  if [ -d /Developer/NVIDIA/CUDA-5.0 ]; then
+    export PATH=/Developer/NVIDIA/CUDA-5.0/bin:$PATH
+    export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.0/lib:$DYLD_LIBRARY_PATH
+  fi
 
   if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
   fi
+fi
+
+if [ -f .bashrc.local ]; then
+  . .bashrc.local
 fi
