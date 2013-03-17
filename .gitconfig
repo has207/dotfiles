@@ -1,0 +1,17 @@
+[user]
+	name = Herman Sheremetyev
+	email = herman@swebpage.com
+
+[alias]
+  br = branch
+  ca = commit -a
+  co = checkout
+  di = diff
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  nb = checkout -b
+  st = status
+
+[color]
+	ui = auto
+[core]
+	editor = /usr/bin/vim
