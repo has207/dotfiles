@@ -61,6 +61,6 @@ if test $(uname) = Darwin; then
   fi
 fi
 
-if [ -f .bashrc.local ]; then
-  . .bashrc.local
+if [ -f ~/.bashrc.local ]; then
+  . ~/.bashrc.local
 fi

@@ -1,17 +1,19 @@
 [user]
-	name = Herman Sheremetyev
-	email = herman@swebpage.com
+  name = Herman Sheremetyev
+  email = herman@swebpage.com
+
+[color]
+  ui = auto
 
 [alias]
   br = branch
   ca = commit -a
   co = checkout
+  cw = !git stash && git checkout work
   di = diff
+  dc = diff --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  nb = checkout -b
+  nb = !git cw && git checkout -b
+  sl = stash list
+  sp = stash pop
   st = status
-
-[color]
-	ui = auto
-[core]
-	editor = /usr/bin/vim
