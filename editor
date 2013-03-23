@@ -19,6 +19,7 @@ if $(tmux list-windows |grep -q '^1:\ vim'); then
   tmux select-window -t :vim \; select-pane -t :.1;
   echo "[hit ENTER when ready]"
   read
+  sleep 1
 else
   vi -X "$1"
 fi
