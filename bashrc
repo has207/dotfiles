@@ -64,3 +64,6 @@ fi
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
 fi
+
+export EDITOR=~/dotfiles/editor
+export VISUAL=$EDITOR

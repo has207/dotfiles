@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# make sure we're inside a tmux session
+if [ x"$TMUX_PANE" = x ]; then
+  vi -X "$1"
+fi
+
+if $(tmux list-windows |grep -q '^1:\ vim'); then
+  if [ x"$1" != x ]; then
+    tmux send -t :vim.1 ":e $1" C-m;
+  fi;
+  tmux select-window -t :vim \; select-pane -t :.1;
+  read
+else
+  vi -X "$1"
+fi
