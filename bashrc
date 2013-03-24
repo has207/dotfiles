@@ -65,5 +65,9 @@ if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
 fi
 
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
 export EDITOR=~/dotfiles/editor
 export VISUAL=$EDITOR
