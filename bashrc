@@ -69,5 +69,5 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-export EDITOR=~/dotfiles/editor
+export EDITOR=~/dotfiles/vimclient
 export VISUAL=$EDITOR

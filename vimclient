@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Usage: vimclient FILENAME
+#
+# Find a vim pane in the current tmux window and tell it to edit the given file.
+# If there is no pane running vim in the current window just open up vim.
+
+# make sure we're inside a tmux session
+if [ x"$TMUX_PANE" = x ]; then
+  vi -X "$1"
+  exit $?
+fi
+
+while read line; do
+  PANE=$(echo "$line" | awk '{print $2}')
+  TTY=$(echo "$line" | awk '{print $3}' | cut -c 6-)
+  if ps c -o 'state=,command=' -t "${TTY}" 2>/dev/null | egrep -qw '(vi|vim)'; then
+    VIM_PANE=$PANE
+    break;
+  fi
+done < <( tmux lsp -s -F '#{window_active} #{pane_id} #{pane_tty}' |grep ^1 )
+
+if [ ! -z $VIM_PANE ]; then
+  if [ x"$1" != x ]; then
+    FILENAME=$(echo $1 | sed 's/\ /\\ /g')
+    DIRECTORY=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+    tmux send -t "$VIM_PANE" ":cd $DIRECTORY | e $FILENAME" C-m;
+  fi;
+  tmux select-pane -t $VIM_PANE
+  echo "[hit ENTER when ready]"
+  read
+  sleep 1  # give vim a chance to save the file
+else
+  vi -X "$1"
+fi
