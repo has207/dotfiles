@@ -1,1 +1,6 @@
+# one tab is better than two
+set show-all-if-ambiguous on
+
+# vi is better than emacs
 set editing-mode vi
+set keymap vi
