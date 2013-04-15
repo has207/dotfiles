@@ -25,6 +25,8 @@ export PYTHONSTARTUP=~/.python
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
+export HISTIGNORE="&:ls:ls *:[bf]g:exit"
+
 shopt -s histappend                      # append to history, don't overwrite it
 
 # bash4 features
@@ -32,6 +34,9 @@ shopt -s globstar autocd
 
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# Make it easier to cd to stuff in ~
+export CDPATH=".:~"
 
 # OSX specific stuff
 if test $(uname) = Darwin; then
@@ -59,6 +64,9 @@ if test $(uname) = Darwin; then
   if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
   fi
+
+  # Add other random stuff to cdpath
+  export CDPATH="$CDPATH:~/scratch"
 fi
 
 if [ -f ~/.bashrc.local ]; then
