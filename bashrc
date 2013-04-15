@@ -29,6 +29,10 @@ export HISTIGNORE="&:ls:ls *:[bf]g:exit"
 
 shopt -s histappend                      # append to history, don't overwrite it
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
 # bash4 features
 shopt -s globstar autocd
 
@@ -37,6 +41,11 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Make it easier to cd to stuff in ~
 export CDPATH=".:~"
+
+# enable programmable completion features
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 
 # OSX specific stuff
 if test $(uname) = Darwin; then
