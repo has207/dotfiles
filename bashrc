@@ -33,6 +33,35 @@ shopt -s histappend                      # append to history, don't overwrite it
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# fix minor misspellings in cd
+shopt -s cdspell
+
+# save multi-line commands as single lines in command history
+shopt -s cmdhist
+
+# ksh-88 style extended globbing
+# (shamelessly copied from http://www.caliban.org/bash/)
+#
+# ?(pattern-list) Matches zero or one occurrence of the given patterns
+# *(pattern-list) Matches zero or more occurrences of the given patterns
+# +(pattern-list) Matches one or more occurrences of the given patterns
+# @(pattern-list) Matches exactly one of the given patterns
+# !(pattern-list) Matches anything except one of the given patterns
+#
+# Ex:
+#
+# To install all RPMs in a given directory, except those built for the noarch
+# architecture. You might use something like this:
+#
+# rpm -Uvh /usr/src/RPMS/!(*noarch*)
+#
+# These expressions can be nested, too, so if you wanted a directory listing
+# of all non PDF and PostScript files in the current directory, you might do
+# this:
+#
+# ls -lad !(*.p@(df|s)))
+shopt -s extglob
+
 # bash4 features
 shopt -s globstar autocd
 
