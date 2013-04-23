@@ -4,3 +4,6 @@ set show-all-if-ambiguous on
 # vi is better than emacs
 set editing-mode vi
 set keymap vi
+
+# ignore completion case
+set completion-ignore-case on

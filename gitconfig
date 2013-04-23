@@ -10,10 +10,13 @@
   ca = commit -a
   co = checkout
   cw = !git stash && git checkout work
-  di = diff --patience --minimal
-  dc = diff --patience --minimal --cached
+  di = diff --patience
+  dc = diff --patience --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   nb = !git cw && git checkout -b
   sl = stash list
   sp = stash pop
   st = status
+
+[commit]
+  template = ~/.gitcommit.template
