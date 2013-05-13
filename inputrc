@@ -1,5 +1,13 @@
 # one tab is better than two
 set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# stfu bell
+set bell-style none
+
+# don't complete existing text
+# when cursor is in the middle of a word
+set skip-completed-text on
 
 # vi is better than emacs
 set editing-mode vi
