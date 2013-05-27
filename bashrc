@@ -5,7 +5,7 @@
 function update_prompt() {
   GIT_BRANCH=$(git branch 2>/dev/null | grep '^\*' | cut -d ' ' -f 2)
   if ! test -z $GIT_BRANCH; then
-    if $(git status 2>/dev/null| egrep -q '^#\s*(deleted|modified|new\ file|renamed):'); then
+    if $(git status 2>/dev/null| egrep -q '^#\s*(both\ )?(deleted|modified|new\ file|renamed):'); then
       STATUS=" !! "
     fi
     echo " {$GIT_BRANCH$STATUS} "
