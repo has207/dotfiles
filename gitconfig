@@ -5,18 +5,28 @@
 [color]
   ui = auto
 
+[color "diff"]
+  frag = 241
+  func = 241
+  whitespace = red
+
 [alias]
-  br = branch
+  br = branch -v
   ca = commit -a
   co = checkout
   cw = !git stash && git checkout work
-  di = diff --patience
-  dc = diff --patience --cached
+  di = diff
+  dc = di --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   nb = !git cw && git checkout -b
   sl = stash list
   sp = stash pop
   st = status
+
+[diff]
+  algorithm = histogram
+  context = 1
+  renames = copy
 
 [commit]
   template = ~/.gitcommit.template
