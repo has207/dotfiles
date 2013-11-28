@@ -16,9 +16,9 @@
   co = checkout
   cw = !git stash && git checkout work
   di = diff
-  dc = di --cached
+  dc = diff --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  nb = !git cw && git checkout -b
+  nb = !git cw && ( which git5 && git5 sync || true ) && git checkout -b
   sl = stash list
   sp = stash pop
   st = status

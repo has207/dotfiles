@@ -1,5 +1,4 @@
 # one tab is better than two
-set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
 # stfu bell

@@ -25,7 +25,7 @@ export PYTHONSTARTUP=~/.python
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
-export HISTIGNORE="&:ls:ls *:[bf]g:exit"
+export HISTIGNORE="&:ls:[bf]g:exit"
 
 shopt -s histappend                      # append to history, don't overwrite it
 
