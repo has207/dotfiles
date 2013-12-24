@@ -1,0 +1,17 @@
+--langdef=gcl
+--langmap=gcl:.gcl
+--regex-gcl=/^[ \t]*param[ \t]+([a-zA-Z0-9_]+)[^{]*=/\1/p,param/
+--regex-gcl=/^feature[ \t]+([a-zA-Z0-9_]+).*=/\1/f,feature/
+--regex-gcl=/^study[ \t]+([a-zA-Z0-9_]+)/\1/s,study/
+--regex-gcl=/^launch[ \t]+([a-zA-Z0-9_]+)/\1/l,launch/
+--regex-gcl=/^[ \t]*experiment[ \t]+([a-zA-Z0-9_]+)/\1/e,experiment/
+--regex-gcl=/^final[ \t]+layer[ \t]+([a-zA-Z0-9_]+)/\1/L,layer/
+--regex-gcl=/^[ \t]*template[ \t]+[^ \t]+[ \t]+([^ \t]+)/\1/t,template/
+
+--langdef=borg
+--langmap=borg:.borg
+--regex-borg=/^[ \t]*package[ \t]+([^ \t]+)/\1/p,package/
+--regex-borg=/^[ \t]*job[ \t]+([^ \t]+)/\1/j,job/
+--regex-borg=/^[ \t]*allocation[ \t]+([^ \t]+)/\1/a,allocation/
+--regex-borg=/^[ \t]*service[ \t]+([^ \t]+)/\1/s,service/
+--regex-borg=/^[ \t]*template[ \t]+[^ \t]+[ \t]+([^ \t]+)/\1/t,template/
